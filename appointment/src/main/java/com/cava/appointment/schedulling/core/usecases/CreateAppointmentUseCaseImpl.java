@@ -13,7 +13,6 @@ public class CreateAppointmentUseCaseImpl implements CreateAppointmentUseCase{
 
     @Override
     public Appointment execute(Appointment appointment) {
-
         System.out.println("estarei criando o agendamento");
         appointmentGateway.createAppointment(appointment);
         return appointment;

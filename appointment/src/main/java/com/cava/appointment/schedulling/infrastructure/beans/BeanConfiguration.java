@@ -1,10 +1,8 @@
 package com.cava.appointment.schedulling.infrastructure.beans;
 
+import com.cava.appointment.schedulling.core.gateway.AppointmentEventGateway;
 import com.cava.appointment.schedulling.core.gateway.AppointmentGateway;
-import com.cava.appointment.schedulling.core.usecases.CreateAppointmentUseCase;
-import com.cava.appointment.schedulling.core.usecases.CreateAppointmentUseCaseImpl;
-import com.cava.appointment.schedulling.core.usecases.SearchAppointmentUseCase;
-import com.cava.appointment.schedulling.core.usecases.SearchAppointmentUseCaseImpl;
+import com.cava.appointment.schedulling.core.usecases.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +17,16 @@ public class BeanConfiguration {
     @Bean
     public SearchAppointmentUseCase searchAppointmentUseCase(AppointmentGateway appointmentGateway){
         return new SearchAppointmentUseCaseImpl(appointmentGateway);
+    }
+
+    @Bean
+    public CreateAppointmentConfirmationEventUseCase createAppointmentConfirmationEventUseCase(AppointmentEventGateway appointmentEventGateway){
+        return new CreateAppointmentConfirmationEventUseCaseImpl(appointmentEventGateway);
+    }
+
+    @Bean
+    public FindAvailableSlotsUseCase findAvailableSlotsUseCase(AppointmentGateway appointmentGateway){
+        return new FindAvailableSlotsUseCaseImpl(appointmentGateway);
     }
 
 

@@ -3,7 +3,7 @@ package com.cava.appointment.schedulling.core.enums;
 public enum AppointmentStatus {
     SCHEDULED,
     CONFIRMED,
-    CACELLED,
+    CANCELLED,
     COMPLETED,
     NO_SHOW
 }

@@ -7,7 +7,10 @@ import com.cava.appointment.schedulling.infrastructure.persistence.AppointmentEn
 import com.cava.appointment.schedulling.infrastructure.persistence.AppointmentRepository;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Component
@@ -44,5 +47,10 @@ public class AppointmentRepositoryGateway implements AppointmentGateway{
     @Override
     public void deleteAppointment(UUID id) {
 
+    }
+
+    @Override
+    public List<LocalDateTime> findAvailableSlots(LocalDateTime startOfDay, LocalDateTime endOfDay, String intervalStep, UUID professionalId) {
+        return appointmentRepository.findAvailableSlots(startOfDay, endOfDay, intervalStep, professionalId);
     }
 }
